@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WearApplication</string>
+    <string name="hello_world">运动获取中...</string>
+</resources>
