@@ -24,4 +24,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-wearable:10.2.1'
     provided 'com.google.android.wearable:wearable:1.0.0'
     compile 'me.denley.courier:courier:1.2.1'
+    compile 'pub.devrel:easypermissions:0.4.3'
 }

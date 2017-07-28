@@ -1,14 +1,10 @@
 package com.rtmap.gm.wearapplication;
 
-import android.Manifest;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.location.LocationManager;
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
 import com.google.android.gms.wearable.Node;
@@ -29,31 +25,14 @@ public class RateService extends WearableListenerService implements SensorEventL
     private String step = "--";
     private String heart = "--";
     private String tempearture = "--";
-    private final LocationManager mLocationManager;
 
     public RateService() {
         Log.d("rateService", "RateService");
-        mLocationManager = (LocationManager) MyApplication.getInstance().getSystemService(Context.LOCATION_SERVICE);
         mSensorManager = (SensorManager) MyApplication.getInstance().getSystemService(Context.SENSOR_SERVICE);
         mHrSensor = mSensorManager.getDefaultSensor(TYPE_HEART_RATE);
         mStepSensor = mSensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
         mTempeartureSensor = mSensorManager.getDefaultSensor(TYPE_AMBIENT_TEMPERATURE);
 
-        getLocation();
-    }
-
-    private void getLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
     }
 
 
