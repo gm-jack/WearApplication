@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.rtmap.gm.wearapplication.MainActivity">
+    tools:context="com.rtmap.gm.wearapp.MainActivity">
 
     <TextView
         android:id="@+id/tv_main"
